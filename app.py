@@ -7,4 +7,5 @@ def hello():
     return "Hello from Cloud Run!"
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    port = int(os.environ.get("PORT", 8080))  # Use Cloud Run's PORT
+    app.run(host="0.0.0.0", port=port)
